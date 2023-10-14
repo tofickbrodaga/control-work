@@ -61,9 +61,9 @@ def validate_arguments(func):
         try:
             for arg in args:
                 if not isinstance(arg, (int, float)):
-                    return 'Функция должна принимать только числа int|float' 
+                    raise ValueError ('Функция должна принимать только числа int|float')
             return func(*args)
-        except TypeError:
+        except ValueError:
             raise TypeError ('Функция должна принимать только числа int|float')
     return wrapper
 
