@@ -42,4 +42,3 @@ def union_digits(digits: list[int]) -> list[int]:
         raise ValueError('Вы вводите что-то не то')
 
 print(union_digits([1, 3, 1, 4]))
-

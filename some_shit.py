@@ -1,3 +1,4 @@
+#7.2
 from typing import Callable, Generator
 # 1
 def sum_all():
@@ -30,12 +31,11 @@ print(get_filtered_strings(['aopsps', 'pspssoos', 'dksls', '4', '5'], ['1', '2',
 def get_dict(frst: dict[str, int|float], scnd: dict[str, int|float], N: str = 'a') -> dict:
     result = {}
     for key, value in frst.items():
-        if key in N:
-            result[key] = value
+        if N in key:
+            result.setdefault(key, value)
     for key, value in scnd.items():
-        if key in N:
-            if value not in result:
-                result[key] = value
+        if N in key:
+                result.setdefault(key, value)
     return result
 
 print(get_dict({'a': 1, 'b': 2, 'c': 3}, {'d': 4, 'aaaaa': 2, 'e': 5, 'f': 6}))
@@ -61,4 +61,4 @@ def decorate_this(func: Callable) -> Callable:
 def true_decorate(a, b):
     return a + b
 
-print(true_decorate(1, 'a'))
+print(true_decorate(1, 1))
